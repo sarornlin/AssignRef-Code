@@ -1,19 +1,3 @@
-﻿using Amazon.Runtime.Internal.Util;
-using Google.Apis.Logging;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Extensions.Logging;
-using Sabio.Models.Requests.Stripe;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
-using System;
-using static Google.Apis.Requests.BatchRequest;
-
-namespace Sabio.Web.Api.Controllers
-{
     [Route("api/stripe/orderreceipts")]
     [ApiController]
     public class StripeOrderReceiptApiController : BaseApiController
@@ -54,4 +38,3 @@ namespace Sabio.Web.Api.Controllers
             return StatusCode(code, response);
         }
     }
-}
