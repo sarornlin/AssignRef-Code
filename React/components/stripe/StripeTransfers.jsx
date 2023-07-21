@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import debug from "sabio-debug";
 import { onGlobalError } from "services/serviceHelpers";
 import TitleHeader from "components/general/TitleHeader";
 import { InputGroup } from "react-bootstrap";
@@ -15,9 +14,7 @@ import stripeTransferService from "services/stripeTransferService";
 import "./stripeMain.css";
 
 function StripeTransfers() {
-  const _logger = debug.extend("StripeTransfers");
 
-  _logger("Stripe Transfer Loaded");
 
   const [formData] = useState({
     targetAccount: "",
@@ -56,7 +53,6 @@ function StripeTransfers() {
   };
 
   const onGetAccountsSuccess = (response) => {
-    _logger("Officials", response.items);
     setOfficials(() => {
       return response.items;
     });
@@ -64,7 +60,6 @@ function StripeTransfers() {
 
   const onGetBalanceSuccess = (response) => {
     const balance = response.item.available[0].amount / 100;
-    _logger("Balance:", balance);
     setBalance({ amount: balance });
   };
 
@@ -108,7 +103,6 @@ function StripeTransfers() {
 
   const submitHandler = (value) => {
     const payload = updatePayload(value);
-    _logger("Payload:", payload);
     stripeTransferService
       .Transfer(payload)
       .then(onTransferSuccess)
@@ -116,13 +110,11 @@ function StripeTransfers() {
   };
 
   const onTransferSuccess = (response) => {
-    _logger("Success:", response.item);
     updateBalance();
     swal({ title: "Transaction Successful", icon: "success" });
   };
 
   const onTransferError = (response) => {
-    _logger("Transfer Error:", response);
     swal("Something went wrong", "Transfer was not completed.", {
       icon: "error",
     });
