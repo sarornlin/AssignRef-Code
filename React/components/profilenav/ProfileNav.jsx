@@ -3,7 +3,6 @@ import Icon from "@mdi/react";
 import { Row, Col, Nav, Tab } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import debug from "sabio-debug";
 import {
   mdiHomeVariantOutline,
   mdiCreditCardOutline,
@@ -24,9 +23,7 @@ import MySubscriptionPage from "components/stripe/MySubscriptionPage";
 import "./profilenav.css";
 
 function ProfileNav({ currentUser }) {
-  const _logger = debug.extend("ProfileNav");
   const navigate = useNavigate();
-  _logger("Current user:", currentUser);
 
   const isOfficial = currentUser.roles.some(
     (role) =>
