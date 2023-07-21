@@ -1,19 +1,3 @@
-﻿using Amazon.Runtime.Internal.Util;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.Extensions.Logging;
-using Sabio.Models.Requests.Stripe;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
-using Stripe;
-using Stripe.FinancialConnections;
-using System;
-
-namespace Sabio.Web.Api.Controllers
-{
     [Route("api/stripe/transfer")]
     [ApiController]
     public class StripeTransferApiController : BaseApiController
@@ -57,4 +41,3 @@ namespace Sabio.Web.Api.Controllers
             return StatusCode(code, response);
         }
     }
-}
