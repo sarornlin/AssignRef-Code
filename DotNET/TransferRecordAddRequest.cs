@@ -1,12 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sabio.Models.Requests.Stripe
-{
     public class TransferRecordAddRequest : TransferAddRequest
     {
         [Required]
@@ -18,4 +9,3 @@ namespace Sabio.Models.Requests.Stripe
         [Required]
         public string Type { get; set; }
     }
-}
