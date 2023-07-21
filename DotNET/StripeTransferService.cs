@@ -1,21 +1,3 @@
-﻿using Microsoft.Extensions.Options;
-using Sabio.Data.Providers;
-using Sabio.Models.Domain.Stripe;
-using Sabio.Models.Requests.Stripe;
-using Sabio.Services.Interfaces;
-using Stripe;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sabio.Services
-{
     public class StripeTransferService : IStripeTransferService
     {
         IDataProvider _data = null;
@@ -82,11 +64,6 @@ namespace Sabio.Services
                     int.TryParse(oId.ToString(), out id);
                 }
                 );
-            
-
             return id;
-
-            
         }
     }
-}
