@@ -1,21 +1,3 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Build.Framework;
-using Microsoft.Extensions.Logging;
-using Sabio.Models.Domain.Stripe;
-using Sabio.Models.Requests.Stripe;
-using Sabio.Services;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
-using Stripe;
-using Stripe.Checkout;
-using System;
-
-namespace Sabio.Web.Api.Controllers
-{
     [Route("api/checkouts")]
     [ApiController]
     public class CheckoutSessionApiController : BaseApiController
@@ -110,4 +92,3 @@ namespace Sabio.Web.Api.Controllers
                 }
         
     }
-}
