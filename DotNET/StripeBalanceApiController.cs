@@ -1,15 +1,3 @@
-﻿using Amazon.Runtime.Internal.Util;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Sabio.Services.Interfaces;
-using Sabio.Web.Controllers;
-using Sabio.Web.Models.Responses;
-using Stripe;
-using System;
-
-namespace Sabio.Web.Api.Controllers
-{
     [Route("api/stripe/balance")]
     [ApiController]
     public class StripeBalanceApiController : BaseApiController
@@ -26,7 +14,6 @@ namespace Sabio.Web.Api.Controllers
         {
             int code = 200;
             BaseResponse response = null;
-
             try
             {
                 Balance balance = _service.GetBalance();
@@ -46,9 +33,6 @@ namespace Sabio.Web.Api.Controllers
                 base.Logger.LogError(ex.ToString());
                 response = new ErrorResponse(ex.Message);
             }
-
             return StatusCode(code, response);
-            
         }
     }
-}
